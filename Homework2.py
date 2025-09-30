@@ -1,16 +1,3 @@
-"""
-Homework 2 — Linear regression with gradient descent (NO sklearn)
-Fixed: handles exploding gradients / NaNs by clipping, early stop, and autoscaling fallback.
-Author: ChatGPT (fixed)
-Requirements:
-  - numpy
-  - pandas
-  - matplotlib
-Run:
-  python Homework2.py
-Set DATA_PATH below to your CSV filename.
-"""
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -22,7 +9,7 @@ import warnings
 # -----------------------------
 # User settings / dataset path
 # -----------------------------
-DATA_PATH = "C:/Users/rsdas/Downloads/Housing.csv"   # <- Change to your filename if different
+DATA_PATH = "C:/Users/rsdas/Downloads/Housing.csv"  
 RANDOM_SEED = 42
 TEST_SIZE = 0.20                # 80/20 split
 np.random.seed(RANDOM_SEED)
@@ -267,7 +254,6 @@ def run_experiment(df, feature_cols, target_col='price', scaling=None,
         if diverged:
             diverged_lrs.append(lr)
 
-    # If all lr diverged and scaling was None, retry with standard scaling automatically
     all_diverged = all(r['diverged'] for r in results)
     if all_diverged and scaling is None:
         warnings.warn("All learning rates diverged with no scaling. Retrying with standardization.")
@@ -436,7 +422,6 @@ def main_all_problems(data_path):
     fig8 = plot_train_val(p3b_results[best_l2_p3b]['best']['train_losses'], p3b_results[best_l2_p3b]['best']['val_losses'],
                          title=f"3.b (1.b features) L2={best_l2_p3b} - val MSE={p3b_results[best_l2_p3b]['best']['final_val_mse']:.4f}")
 
-    # Save figures and a short PDF summary
     pdf_path = "report_no_sklearn_fixed.pdf"
     with PdfPages(pdf_path) as pdf:
         for fig in [fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8]:
