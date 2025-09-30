@@ -430,7 +430,7 @@ def main_all_problems(data_path):
         fig = plt.figure(figsize=(8.5, 11))
         plt.axis('off')
         txt = []
-        txt.append("Homework 2 - Linear Regression with Gradient Descent (NO sklearn) - FIXED\n\n")
+        txt.append("Homework 2 - Linear Regression with Gradient Descent\n\n")
         txt.append(f"Dataset: {data_path}\n\n")
         txt.append("Summary of best results (validation MSE):\n")
         txt.append(f"1.a (baseline) - val MSE: {p1a['best']['final_val_mse']:.4f}, lr={p1a['best']['lr']}\n")
