@@ -15,7 +15,7 @@ TEST_SIZE = 0.20                # 80/20 split
 np.random.seed(RANDOM_SEED)
 
 # -----------------------------
-# Small utility: custom scalers (no sklearn)
+# Small utility: custom scalers
 # -----------------------------
 class StandardScalerCustom:
     def __init__(self):
@@ -422,7 +422,7 @@ def main_all_problems(data_path):
     fig8 = plot_train_val(p3b_results[best_l2_p3b]['best']['train_losses'], p3b_results[best_l2_p3b]['best']['val_losses'],
                          title=f"3.b (1.b features) L2={best_l2_p3b} - val MSE={p3b_results[best_l2_p3b]['best']['final_val_mse']:.4f}")
 
-    pdf_path = "report_no_sklearn_fixed.pdf"
+    pdf_path = "report2.pdf"
     with PdfPages(pdf_path) as pdf:
         for fig in [fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8]:
             pdf.savefig(fig)
